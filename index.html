@@ -2,54 +2,52 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>Flex Panles Image Gallery</title>
+        <title>Bad UI</title>
         <link rel="stylesheet" href="./src/stylesheet.css">
     </head>
     <body>
+        <h2>Reservation Form for <span class='hl'>SI</span></h2>
+        <lebal style="font-size: 30px;"><input type="checkbox" id="isFixed">fix panels</lebal>
         <div class="panels">
             <div class="panel panel1">
-                <p>Hey</p>
-                <p>Let's</p>
-                <p>Dance</p>
+                <p class="name-plate">John Doe</p>
+                <p>Name</p>
+                <form class="add-items">
+                    <input type="text" name="item" placeholder="Item Name" required>
+                    <input type="submit" value="+ Add Item">
+                </form>
             </div>
             <div class="panel panel2">
-                <p>Give</p>
-                <p>Take</p>
-                <p>Receive</p>
+                <p><span id="current-value"></span> years old</p>
+                <p>Age</p>
+                <div><input type="range" id="example" min="0" max="200" step="1"></div>
             </div>
             <div class="panel panel3">
-                <p>Experience</p>
-                <p>It</p>
-                <p>Today</p>
+                <p id="date-display"></p>
+                <p>Date</p>
+                <div><input type="datetime-local" id="date-input"></div>
             </div>
             <div class="panel panel4">
-                <p>Give</p>
-                <p>All</p>
-                <p>You can</p>
+                <p></p>
+                <p>Confirm</p>
+                <label><input type="checkbox" id="confirm-input">Are you feeling well?</label>
             </div>
             <div class="panel panel5">
-                <p>Life</p>
-                <p>In</p>
-                <p>Motion</p>
+                <form method="POST">
+                    <input type="submit" id="submit-button" 
+                        class='submitButton' value="submit"
+                        onclick="doSubmit()"></button>
+                </form>
+                <p>Submit</p>
+                <form>
+                    <input type="submit" id="reset-button" 
+                        class="resetButton" value="Reset"
+                        onclick="doReset()"></button>
+                </form>
             </div>
         </div>
 
-        <script>
-            const panels = document.querySelectorAll('.panel');
-
-            function toggleOpen() {
-                console.log('Hello');
-                this.classList.toggle('open');
-            }
-
-            function toggleActive(e) {
-                if(e.propertyName.includes('flex')) {
-                    this.classList.toggle('open-active');
-                }
-            }
-
-            panels.forEach(panel => panel.addEventListener('click', toggleOpen));
-            panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
-        </script>
+        <script aria-hidden="true" type="application/x-lastpass" id="hiddenlpsubmitdiv" style="display: none;"></script>
+        <script src="./src/script.js"></script>
     </body>
 </html>
